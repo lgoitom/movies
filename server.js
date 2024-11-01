@@ -30,7 +30,7 @@ app.use('/css', express.static(path.join(__dirname, 'css')));
 app.use('/js', express.static(path.join(__dirname, 'js')));
 
 
-app.get('/', (req, res) => {
+app.get('/api/movies', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
