@@ -7,9 +7,10 @@
  * ********************************************************************************/
 let page = 1;
 const perPage = 10;
+const base = "https://movies-luwams-projects.vercel.app/"
 
 function loadMovieData(title) {
-    const url = title ? `/api/movies?page=${page}&perPage=${perPage}&title=${encodeURIComponent(title)}` : `/api/movies?page=${page}&perPage=${perPage}`;
+    const url = title ? `${base}/api/movies?page=${page}&perPage=${perPage}&title=${encodeURIComponent(title)}` : `${base}/api/movies?page=${page}&perPage=${perPage}`;
     
     fetch(url)
         .then(response => response.ok ? response.json() : Promise.reject(response.status))
