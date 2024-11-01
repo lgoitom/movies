@@ -25,7 +25,7 @@ app.use(express.json());
 // start the server on the port and output a confirmation to the console
 //app.listen(HTTP_PORT, () => console.log(`server listening on: ${HTTP_PORT}`));
 
-app.use(express.static(path.join(__dirname, 'public')));
+//app.use(express.static(path.join(__dirname, 'public')));
 app.use('/css', express.static(path.join(__dirname, 'css')));
 app.use('/js', express.static(path.join(__dirname, 'js')));
 
@@ -115,10 +115,6 @@ db.initialize(process.env.MONGODB_CONN_STRING).then(()=>{
             console.error(error);
             res.status(500).json({message: "movie could not be deleted"});
         }
-    });
-
-    app.listen(HTTP_PORT, () => {
-        console.log(`server listening on port ${HTTP_PORT}`);
     });
     
 }).catch((err)=>{
