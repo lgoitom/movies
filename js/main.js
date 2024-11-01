@@ -7,7 +7,7 @@
  * ********************************************************************************/
 let page = 1;
 const perPage = 10;
-const base = "https://movies-luwams-projects.vercel.app/"
+const base = "https://movies-luwams-projects.vercel.app"
 
 function loadMovieData(title) {
     const url = title ? `${base}/api/movies?page=${page}&perPage=${perPage}&title=${encodeURIComponent(title)}` : `${base}/api/movies?page=${page}&perPage=${perPage}`;
@@ -45,7 +45,7 @@ function createRow({ _id, year = 'N/A', title = 'N/A', plot = 'N/A', rated = 'N/
 }
 
 function loadMovieDetails(movieId) {
-    fetch(`/api/movies/${movieId}`)
+    fetch(`${base}/api/movies/${movieId}`)
         .then(response => response.ok ? response.json() : Promise.reject(response.status))
         .then(movie => showMovieDetails(movie))
         .catch(err => console.error(`failed to load movie details: ${err}`));
